@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://uthsobiswas.github.io/portfolio/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Uthso Biswas | Web Developer</title>
+<link rel="stylesheet" href="./project2_files/style.css">
+</head>
+
+<body>
+
+<nav>
+<h2>Uthso Biswas</h2>
+</nav>
+
+<section class="hero">
+
+<img src="./project2_files/profile.jpg" class="profile" alt="Uthso Photo">
+
+<h1>Hello, I'm Uthso</h1>
+
+<p class="subtitle">
+Biomedical Engineering Student | Aspiring Web Developer
+</p>
+
+<p>
+I build websites and web applications using HTML, CSS and JavaScript.
+</p>
+
+<a href="https://github.com/uthsobiswas" target="_blank">
+<button>View GitHub</button>
+</a>
+
+</section>
+
+
+<section>
+
+<h2>Education</h2>
+
+<div class="card">
+Biomedical Engineering<br>
+6th Semester
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Skills</h2>
+
+<div class="grid">
+
+<div class="card">HTML</div>
+<div class="card">CSS</div>
+<div class="card">JavaScript</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Portfolio Website</h3>
+
+<p>My personal developer portfolio website.</p>
+
+<a href="https://uthsobiswas.github.io/portfolio/" target="_blank">
+<button>View Project</button>
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>To-Do App</h3>
+
+<p>Task manager built using JavaScript.</p>
+
+<a href="https://github.com/uthsobiswas" target="_blank">
+<button>View Code</button>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Contact</h2>
+
+<p>Email: uthsoroy2002@gmail.com</p>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Uthso Biswas</p>
+
+</footer>
+
+
+
+</body></html>
