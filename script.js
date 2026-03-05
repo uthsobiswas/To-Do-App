@@ -1,36 +1,74 @@
-const apiKey = 136130981c1fa916e97a7bdf225ac4b2;
+const taskInput = document.getElementById("taskInput")
+const taskList = document.getElementById("taskList")
 
-function getWeather(){
+loadTasks()
 
-const city = document.getElementById("cityInput").value;
+function addTask(){
 
-const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+const taskText = taskInput.value.trim()
 
-fetch(url)
-.then(response => response.json())
-.then(data => {
+if(taskText === "") return
 
-if(data.cod === "404"){
-alert("City not found");
-return;
+createTask(taskText)
+
+saveTask(taskText)
+
+taskInput.value = ""
+
 }
 
-document.getElementById("city").innerText = data.name;
+function createTask(text, completed=false){
 
-document.getElementById("temp").innerText =
-"Temperature: " + data.main.temp + "°C";
+const li = document.createElement("li")
 
-document.getElementById("desc").innerText =
-"Weather: " + data.weather[0].description;
+if(completed) li.classList.add("completed")
 
-document.getElementById("humidity").innerText =
-"Humidity: " + data.main.humidity + "%";
+li.innerHTML = `
+<span>${text}</span>
+<button class="delete">X</button>
+`
 
-const icon =
-`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+li.querySelector("span").onclick = () =>{
+li.classList.toggle("completed")
+updateStorage()
+}
 
-document.getElementById("icon").src = icon;
+li.querySelector(".delete").onclick = () =>{
+li.remove()
+updateStorage()
+}
 
-});
+taskList.appendChild(li)
+
+}
+
+function saveTask(task){
+let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+tasks.push({text:task,completed:false})
+localStorage.setItem("tasks",JSON.stringify(tasks))
+}
+
+function loadTasks(){
+let tasks = JSON.parse(localStorage.getItem("tasks")) || []
+
+tasks.forEach(task =>{
+createTask(task.text,task.completed)
+})
+}
+
+function updateStorage(){
+
+let tasks = []
+
+document.querySelectorAll("#taskList li").forEach(li =>{
+
+tasks.push({
+text:li.innerText.replace("X","").trim(),
+completed:li.classList.contains("completed")
+})
+
+})
+
+localStorage.setItem("tasks",JSON.stringify(tasks))
 
 }
